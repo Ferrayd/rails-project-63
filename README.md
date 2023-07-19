@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.com/Ferrayd/rails-project-63.svg?branch=master)](https://travis-ci.com/Ferrayd/rails-project-63)
+
+Hexlet status:  
+[![Actions Status](https://github.com/Ferrayd/rails-project-63/workflows/hexlet-check/badge.svg)](https://github.com/Ferrayd/rails-project-63/actions)  
+CI status:  
+[![Actions Status](https://github.com/Ferrayd/rails-project-63/workflows/CI/badge.svg)](https://github.com/Ferrayd/rails-project-63/actions)  
+
 # HexletCode
 
 TODO: Delete this and the text below, and describe your gem
