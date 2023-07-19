@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Form generator'
   spec.description = 'Project for course on Hexlet'
   spec.homepage = 'https://github.com/Ferrayd/rails-project-63'
-  spec.required_ruby_version = '>= 3.2.2'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.metadata['allowed_push_host'] = 'https://github.com/Ferrayd/rails-project-63'
 
@@ -35,4 +35,5 @@ Gem::Specification.new do |spec|
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
