@@ -1,7 +1,7 @@
 Hexlet status:  
 [![Actions Status](https://github.com/Ferrayd/rails-project-63/workflows/hexlet-check/badge.svg)](https://github.com/Ferrayd/rails-project-63/actions)  
 CI status:  
-[![Actions Status](https://github.com/Ferrayd/rails-project-63/workflows/Makefile CI/badge.svg)](https://github.com/Ferrayd/rails-project-63/actions)  
+[![Makefile CI](https://github.com/Ferrayd/rails-project-63/actions/workflows/CI.yml/badge.svg)](https://github.com/Ferrayd/rails-project-63/actions/workflows/CI.yml)
 
 # HexletCode
 

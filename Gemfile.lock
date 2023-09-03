@@ -108,6 +108,7 @@ DEPENDENCIES
   rubocop-rake
   rubocop-rspec
   solargraph
+  minitest-power_assert
 
 BUNDLED WITH
    2.4.10

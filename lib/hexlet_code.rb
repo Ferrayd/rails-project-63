@@ -18,3 +18,8 @@ module HexletCode
     end
   end
 end
+
+def self.form_for(_user, url: '#')
+  f = Tag.build('form', action: url, method: 'post') { '' }
+  yield f
+end

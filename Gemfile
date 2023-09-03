@@ -8,6 +8,7 @@ gemspec
 gem 'rake', '~> 13.0'
 
 group :development do
+  gem 'minitest-power_assert'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
