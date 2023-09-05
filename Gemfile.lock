@@ -105,6 +105,7 @@ PLATFORMS
 
 DEPENDENCIES
   hexlet_code!
+  minitest
   minitest-power_assert
   rake (~> 13.0)
   rubocop
