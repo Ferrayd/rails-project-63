@@ -22,6 +22,7 @@ class TestHexletCode < TestCase
       HexletCode.form_for @user do |f|
         f.input :name
         f.input :job, as: :text
+        f.submit
       end
     assert { actual_html == expected_html }
   end
@@ -41,6 +42,7 @@ class TestHexletCode < TestCase
     actual_html =
       HexletCode.form_for @user do |f|
         f.input :job, as: :text
+        f.submit
       end
     assert { actual_html == expected_html }
   end
