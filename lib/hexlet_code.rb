@@ -21,9 +21,11 @@ module HexletCode
 
   # Module for creating forms
   class Form
-    def initialize(user, url)
+    def initialize(user, url, method, **kwargs)
       @user = user
       @url = url
+      @method = method
+      @other_attributes = kwargs
       @children = []
     end
 
@@ -47,14 +49,14 @@ module HexletCode
     end
 
     def to_s
-      Tag.build('form', action: @url, method: 'post') do
+      Tag.build('form', action: @url, method: @method, **@other_attributes) do
         @children.join
       end
     end
   end
 
-  def self.form_for(user, url: '#')
-    form = Form.new user, url
+  def self.form_for(user, url: '#', method: 'post', **kwargs)
+    form = Form.new user, url, method, **kwargs
     yield form
     form.to_s
   end
