@@ -29,12 +29,12 @@ module HexletCode
       @children = []
     end
 
-    def input(name, as: nil, **kwargs)
+    def input(name, as: nil, **)
       @children << Tag.build('label', for: name) { name.capitalize }
-      return textarea(name, **kwargs) if as == :text
+      return textarea(name, **) if as == :text
 
       value = @user.public_send(name)
-      @children << Tag.build('input', name:, type: 'text', value:, **kwargs)
+      @children << Tag.build('input', name:, type: 'text', value:, **)
     end
 
     def textarea(name, **kwargs)
@@ -55,8 +55,8 @@ module HexletCode
     end
   end
 
-  def self.form_for(user, url: '#', method: 'post', **kwargs)
-    form = Form.new user, url, method, **kwargs
+  def self.form_for(user, url: '#', method: 'post', **)
+    form = Form.new(user, url, method, **)
     yield form
     form.to_s
   end
