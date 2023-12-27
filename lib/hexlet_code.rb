@@ -1,63 +1,27 @@
 # frozen_string_literal: true
 
 require_relative 'hexlet_code/version'
+autoload('Form', 'hexlet_code/form')
+autoload('Tag', 'hexlet_code/tag')
 
-# Main module
+# main module
 module HexletCode
   class Error < StandardError; end
 
-  # Module for creating tags
-  module Tag
-    def self.build(tag_name, attributes = {})
-      attrs = attributes.map { |k, v| " #{k}=\"#{v}\"" }
-      if block_given?
-        body = yield
-        "<#{tag_name}#{attrs.join}>#{body}</#{tag_name}>"
-      else
-        "<#{tag_name}#{attrs.join}>"
-      end
-    end
-  end
-
-  # Module for creating forms
-  class Form
-    def initialize(user, url, method, **kwargs)
-      @user = user
-      @url = url
-      @method = method
-      @other_attributes = kwargs
-      @children = []
-    end
-
-    def input(name, as: nil, **)
-      @children << Tag.build('label', for: name) { name.capitalize }
-      return textarea(name, **) if as == :text
-
-      value = @user.public_send(name)
-      @children << Tag.build('input', name:, type: 'text', value:, **)
-    end
-
-    def textarea(name, **kwargs)
-      default_params = { cols: '20', rows: '40' }
-      params = default_params.merge(kwargs)
-      value = @user.public_send(name)
-      @children << Tag.build('textarea', name:, **params) { value }
-    end
-
-    def submit(value = 'Save')
-      @children << Tag.build('input', type: 'submit', value:)
-    end
-
-    def to_s
-      Tag.build('form', action: @url, method: @method, **@other_attributes) do
-        @children.join
-      end
-    end
-  end
-
-  def self.form_for(user, url: '#', method: 'post', **)
-    form = Form.new(user, url, method, **)
+  def self.form_for(entity, url: '#', method: 'post', **kwargs)
+    form = Form.new entity, attributes: { action: url, method:, **kwargs }
     yield form
-    form.to_s
+
+    element = form.element
+    Tag.build(element[:name], element[:attributes]) do
+      element[:content]
+        .map do |child|
+          element = child.element
+          content = element[:content]
+          block_with_content = content && proc { content }
+          Tag.build(element[:name], element[:attributes], &block_with_content)
+        end
+        .join
+    end
   end
 end
