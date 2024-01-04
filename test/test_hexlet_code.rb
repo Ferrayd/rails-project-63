@@ -13,7 +13,7 @@ class TestHexletCode < TestCase
   end
 
   def test_form_for1
-    expected_html = make_html_oneline(load_fixture('expected1.html'))
+    expected_html = make_html_oneline(load_fixture('test_default.html'))
     actual_html =
       HexletCode.form_for @user do |f|
         f.input :name
@@ -24,7 +24,7 @@ class TestHexletCode < TestCase
   end
 
   def test_form_for2
-    expected_html = make_html_oneline(load_fixture('expected2.html'))
+    expected_html = make_html_oneline(load_fixture('test_with_class.html'))
     actual_html =
       HexletCode.form_for @user, url: '#' do |f|
         f.input :name, class: 'user-input'
@@ -34,7 +34,7 @@ class TestHexletCode < TestCase
   end
 
   def test_form_for3
-    expected_html = make_html_oneline(load_fixture('expected3.html'))
+    expected_html = make_html_oneline(load_fixture('test_with_text.html'))
     actual_html =
       HexletCode.form_for @user do |f|
         f.input :job, as: :text
@@ -44,7 +44,7 @@ class TestHexletCode < TestCase
   end
 
   def test_form_for4
-    expected_html = make_html_oneline(load_fixture('expected4.html'))
+    expected_html = make_html_oneline(load_fixture('text_with_data.html'))
     actual_html =
       HexletCode.form_for @user, url: '/users' do |f|
         f.input :job, as: :text, rows: 50, cols: 50
