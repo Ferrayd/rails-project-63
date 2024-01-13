@@ -12,7 +12,7 @@ class TestHexletCode < TestCase
     @user = user_class.new name: 'rob', job: 'hexlet'
   end
 
-  def test_form_for1
+  def est_default
     expected_html = make_html_oneline(load_fixture('test_default.html'))
     actual_html =
       HexletCode.form_for @user do |f|
@@ -23,7 +23,7 @@ class TestHexletCode < TestCase
     assert { actual_html == expected_html }
   end
 
-  def test_form_for2
+  def test_with_class
     expected_html = make_html_oneline(load_fixture('test_with_class.html'))
     actual_html =
       HexletCode.form_for @user, url: '#' do |f|
@@ -33,7 +33,7 @@ class TestHexletCode < TestCase
     assert { actual_html == expected_html }
   end
 
-  def test_form_for3
+  def test_with_text
     expected_html = make_html_oneline(load_fixture('test_with_text.html'))
     actual_html =
       HexletCode.form_for @user do |f|
@@ -43,7 +43,7 @@ class TestHexletCode < TestCase
     assert { actual_html == expected_html }
   end
 
-  def test_form_for4
+  def text_with_data
     expected_html = make_html_oneline(load_fixture('text_with_data.html'))
     actual_html =
       HexletCode.form_for @user, url: '/users' do |f|
