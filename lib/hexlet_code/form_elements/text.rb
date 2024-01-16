@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# class for text
 class Text < Element
   def initialize(name, value, **kwargs)
     default_params = { cols: '20', rows: '40' }

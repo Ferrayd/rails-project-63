@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 autoload('Element', 'hexlet_code/element')
-# class for form
 class Form < Element
   def initialize(entity, attributes:)
     @entity = entity

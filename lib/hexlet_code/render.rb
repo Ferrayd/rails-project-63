@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 autoload :HexletCode, 'hexlet_code/hexlet_code'
-# doc
 class Render
   attr_reader :element
 
